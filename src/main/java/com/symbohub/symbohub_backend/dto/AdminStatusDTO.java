@@ -1,0 +1,16 @@
+package com.symbohub.symbohub_backend.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class AdminStatusDTO {
+    private int totalColleges;
+    private int pendingColleges;
+    private int totalDepartments;
+    private int totalBrochures;
+    private int totalEmailsSent;
+}

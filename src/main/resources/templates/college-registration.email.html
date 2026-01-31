@@ -1,0 +1,103 @@
+cat > src/main/resources/templates/college-rejection-email.html << 'EOF'
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>College Registration Update - SymboHUB</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8fafc;
+        }
+        .header {
+            background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+        }
+        .content {
+            padding: 40px;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+        }
+        .rejection-box {
+            background-color: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .status-badge {
+            background-color: #6b7280;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #64748b;
+            font-size: 12px;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 20px;
+        }
+        .accent {
+            color: #2563eb;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1 style="margin: 0; font-size: 28px;">Symbo<span style="color:#d1d5db">HUB</span></h1>
+    <p style="margin: 10px 0 0 0; opacity: 0.9;">Smart Event Hub</p>
+</div>
+
+<div class="content">
+    <h2 style="color: #1e293b; margin-bottom: 10px;">College Registration Update</h2>
+    <p>Dear <span class="accent" th:text="${collegeName}"></span>,</p>
+
+    <p>We regret to inform you that your college registration has been <span class="status-badge">REJECTED</span>.</p>
+
+    <div class="rejection-box">
+        <h3 style="color: #1e293b; margin-top: 0;">Registration Details:</h3>
+        <p><strong>College:</strong> <span th:text="${collegeName}"></span></p>
+        <p><strong>Registration Date:</strong> <span th:text="${registrationDate}"></span></p>
+        <p><strong>Rejection Reason:</strong></p>
+        <div style="background-color: white; padding: 15px; border-radius: 6px; margin: 10px 0; border-left: 4px solid #dc2626;">
+            <span th:text="${rejectionReason}"></span>
+        </div>
+    </div>
+
+    <h3 style="color: #1e293b;">Next Steps:</h3>
+    <ul style="color: #475569; padding-left: 20px;">
+        <li>Review the rejection reason above</li>
+        <li>You can address the issues and reapply</li>
+        <li>If you believe this is a mistake, contact our support team</li>
+    </ul>
+
+    <p style="margin-top: 30px;">For further assistance, please contact us at <span class="accent" th:text="${supportEmail}"></span></p>
+
+    <p style="margin-top: 30px;">Best regards,<br>The SymboHUB Team</p>
+</div>
+
+<div class="footer">
+    <p>&copy; <span th:text="${currentYear}"></span> SymboHUB. All rights reserved.</p>
+    <p>This is an automated message, please do not reply to this email.</p>
+    <p>123 Tech Street, Bangalore | support@symbohub.com | 6379349612</p>
+</div>
+</body>
+</html>
+EOF

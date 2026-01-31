@@ -1,0 +1,104 @@
+cat > src/main/resources/templates/welcome-email.html << 'EOF'
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to SymboHUB</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8fafc;
+        }
+        .header {
+            background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+        }
+        .content {
+            padding: 40px;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+        }
+        .welcome-box {
+            background-color: #f0fdfa;
+            border: 1px solid #99f6e4;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #0f766e;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 10px 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #64748b;
+            font-size: 12px;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 20px;
+        }
+        .accent {
+            color: #0f766e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1 style="margin: 0; font-size: 28px;">Welcome to <span style="color:#5eead4">SymboHUB</span></h1>
+    <p style="margin: 10px 0 0 0; opacity: 0.9;">Smart Event Hub</p>
+</div>
+
+<div class="content">
+    <h2 style="color: #1e293b; margin-bottom: 10px;">Welcome <span class="accent" th:text="${userName}"></span>!</h2>
+
+    <p>Thank you for joining SymboHUB! We're excited to have you as a <span class="accent" th:text="${userType}"></span> on our platform.</p>
+
+    <div class="welcome-box">
+        <h3 style="color: #1e293b; margin-top: 0;">Get Started with SymboHUB:</h3>
+        <p>SymboHUB is your all-in-one platform for college event management, brochure distribution, and department coordination.</p>
+    </div>
+
+    <div style="text-align: center;">
+        <a th:href="${loginUrl}" class="cta-button">Login to Your Account</a>
+        <a th:href="${dashboardUrl}" class="cta-button" style="background-color: #2563eb;">Go to Dashboard</a>
+    </div>
+
+    <h3 style="color: #1e293b; margin-top: 30px;">Quick Start Guide:</h3>
+    <ul style="color: #475569; padding-left: 20px;">
+        <li>Complete your profile setup</li>
+        <li>Explore the dashboard features</li>
+        <li>Connect with other departments/colleges</li>
+        <li>Upload your first brochure</li>
+        <li>Check out our tutorials in the help section</li>
+    </ul>
+
+    <p style="margin-top: 30px;">Need help? Visit our <a href="#" style="color: #0f766e;">Help Center</a> or contact our support team.</p>
+
+    <p>Best regards,<br>The SymboHUB Team</p>
+</div>
+
+<div class="footer">
+    <p>&copy; <span th:text="${currentYear}"></span> SymboHUB. All rights reserved.</p>
+    <p>This is an automated message, please do not reply to this email.</p>
+    <p>123 Tech Street, Bangalore | support@symbohub.com | 6379349612</p>
+</div>
+</body>
+</html>
+EOF

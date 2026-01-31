@@ -1,0 +1,95 @@
+cat > src/main/resources/templates/brochure-notification-email.html << 'EOF'
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Brochure Notification - SymboHUB</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8fafc;
+        }
+        .header {
+            background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+        }
+        .content {
+            padding: 40px;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+        }
+        .brochure-box {
+            background-color: #faf5ff;
+            border: 1px solid #e9d5ff;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #8b5cf6;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #64748b;
+            font-size: 12px;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 20px;
+        }
+        .accent {
+            color: #7c3aed;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1 style="margin: 0; font-size: 28px;">Symbo<span style="color:#c4b5fd">HUB</span></h1>
+    <p style="margin: 10px 0 0 0; opacity: 0.9;">Smart Event Hub</p>
+</div>
+
+<div class="content">
+    <h2 style="color: #1e293b; margin-bottom: 10px;">New Brochure Available</h2>
+    <p>Hello <span class="accent" th:text="${departmentName}"></span>,</p>
+
+    <p>A new brochure has been uploaded to SymboHUB that might be of interest to your department.</p>
+
+    <div class="brochure-box">
+        <h3 style="color: #1e293b; margin-top: 0;">📄 <span th:text="${brochureTitle}"></span></h3>
+        <p><strong>Uploaded by:</strong> <span th:text="${senderDepartment}"></span></p>
+        <p><strong>Description:</strong> <span th:text="${description}"></span></p>
+        <p><strong>Upload Date:</strong> <span th:text="${uploadDate}"></span></p>
+    </div>
+
+    <p>This brochure is now available in your department's brochure section.</p>
+
+    <a th:href="${viewUrl}" class="cta-button">View Brochure</a>
+
+    <p style="margin-top: 30px;">Best regards,<br>The SymboHUB Team</p>
+</div>
+
+<div class="footer">
+    <p>&copy; <span th:text="${currentYear}"></span> SymboHUB. All rights reserved.</p>
+    <p>This is an automated message, please do not reply to this email.</p>
+    <p>123 Tech Street, Bangalore | support@symbohub.com | 6379349612</p>
+</div>
+</body>
+</html>
+EOF

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>College Registration Confirmation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8fafc;
+        }
+        .header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+        }
+        .content {
+            padding: 40px;
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+        }
+        .status-badge {
+            background-color: #f59e0b;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .info-box {
+            background-color: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        .steps {
+            margin: 25px 0;
+        }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .step-number {
+            background-color: #2563eb;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #64748b;
+            font-size: 12px;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 20px;
+        }
+        .accent {
+            color: #2563eb;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1 style="margin: 0; font-size: 28px;">Symbo<span style="color:#3b82f6">HUB</span></h1>
+    <p style="margin: 10px 0 0 0; opacity: 0.9;">Smart Event Hub</p>
+</div>
+
+<div class="content">
+    <h2 style="color: #1e293b; margin-bottom: 10px;">College Registration Received</h2>
+    <p>Dear <span class="accent" th:text="${collegeName}"></span>,</p>
+
+    <p>Thank you for registering with SymboHUB. Your college registration has been received and is currently under review.</p>
+
+    <div class="info-box">
+        <h3 style="color: #1e293b; margin-top: 0;">Registration Details:</h3>
+        <p><strong>College:</strong> <span th:text="${collegeName}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${collegeEmail}"></span></p>
+        <p><strong>Status:</strong> <span class="status-badge">PENDING APPROVAL</span></p>
+        <p><strong>Registration Date:</strong> <span th:text="${registrationDate}"></span></p>
+    </div>
+
+    <h3 style="color: #1e293b;">What happens next?</h3>
+    <div class="steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <strong>Admin Verification</strong>
+                <p style="margin: 5px 0 0 0; color: #64748b;">Our admin team will verify your staff ID and registration details</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <strong>Approval Decision</strong>
+                <p style="margin: 5px 0 0 0; color: #64748b;">You'll receive email notification of approval/rejection</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <strong>Login Access</strong>
+                <p style="margin: 5px 0 0 0; color: #64748b;">Once approved, use your credentials to login</p>
+            </div>
+        </div>
+    </div>
+
+    <p><strong>📋 Important Notes:</strong></p>
+    <ul style="color: #475569; padding-left: 20px;">
+        <li>This process usually takes 1-2 business days</li>
+        <li>You cannot login until your college is approved</li>
+        <li>Check your email regularly for updates</li>
+        <li>Keep your staff ID document ready for verification</li>
+    </ul>
+
+    <p style="margin-top: 30px;">If you have any questions, please contact us at <span class="accent">support@symbohub.com</span></p>
+
+    <p style="margin-top: 30px;">Best regards,<br>The SymboHUB Team</p>
+</div>
+
+<div class="footer">
+    <p>&copy; <span th:text="${currentYear}"></span> SymboHUB. All rights reserved.</p>
+    <p>This is an automated message, please do not reply to this email.</p>
+    <p>123 Tech Street, Bangalore | support@symbohub.com | 6379349612</p>
+</div>
+</body>
+</html>

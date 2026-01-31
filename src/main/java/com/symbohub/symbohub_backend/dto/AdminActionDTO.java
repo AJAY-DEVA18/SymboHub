@@ -1,0 +1,14 @@
+package com.symbohub.symbohub_backend.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class AdminActionDTO {
+    private String action;
+    private String reason;
+    private Long targetId;
+}
